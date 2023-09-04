@@ -1,0 +1,205 @@
+@import './src/theme/variables.css';
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    height: 800px;
+    padding: 44px var(--Round-4, 12px) var(--Round-4, 12px) var(--Round-4, 12px);
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.title {
+    display: flex;
+    background-color: white;
+    color: var(--ion-primary);
+    font-size: 24px;
+    font-style: normal;
+    line-height: normal;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5px;
+    margin: -6px;
+    font-family: 'Rubik';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.toolbar {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    align-self: stretch;
+}
+
+.select {
+    --placeholder-color: #1E1E1E;
+    --placeholder-opacity: 1;
+    font-family: Rubik;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.select::part(text) {
+    color: black;
+}
+
+.options {
+    --color: var(--ion-primary);
+    text-align: center;
+    font-family: Rubik;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.login-icon {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    margin: 0;
+    padding: 0;
+}
+
+.grid ion-col {
+    border-radius: var(--Round-4, 12px);
+    display: flex;
+    font-size: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 200px;
+    height: 80px;
+    padding:12px;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #EEE;
+    border: solid 1px #fff;
+    color: var(--ion-text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.grid ion-col:active {
+    background-color: var(--ion-secondary);
+    color: white;
+    fill: white;
+}
+
+.grid ion-row {
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 12px var(--Round-4, 12px);
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+
+.icons {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    fill: white;
+    stroke: var(--ion-primary);
+}
+  
+.icons:active {
+    stroke: white;
+}
+
+#add-button {
+    --background: var(--ion-background);
+    --color: var(--ion-primary);
+    --border-radius: var(--Round-4, 12px);
+    position: absolute;
+    right: 12px;
+    bottom: 80px;
+    display: flex;
+    height: 43px;
+    justify-content: center;
+    align-items: center;
+    font-family: Rubik;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: none;   
+}
+
+#add-button ion-icon {
+    margin-left: 8px;
+}
+
+#footer {
+    width: 100%;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer ion-row {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#footer ion-col {
+    display: flex;
+    width: 80px;
+    height: 44px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+    text-align: center;
+    font-family: Rubik;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: var(--ion-primary);
+}
+
+#footer ion-icon {
+    color: white;
+    stroke: var(--ion-primary);
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actual-page {
+    color: #3E3E3E;
+    text-align: center;
+    font-family: Rubik;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}

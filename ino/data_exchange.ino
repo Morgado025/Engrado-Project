@@ -1,7 +1,12 @@
 #include <WiFi.h>
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
+#include "HX711.h"
 
+#define CELULA_DT  21
+#define CELULA_SCK  19
+
+float fator_calib = -10000;
 const char *ssid = "*****";
 const char *password = "*****";
 
@@ -13,6 +18,7 @@ const int mqtt_port = 1883;
 
 WiFiClient espClient;
 PubSubClient client(espClient);
+HX711 escala;
 
 void setup() {
     Serial.begin(115200);
@@ -22,6 +28,11 @@ void setup() {
         Serial.println("Connecting to WiFi..");
     }
     Serial.println("Connected to the Wi-Fi network");
+
+    escala.begin(CELULA_DT, CELULA_SCK);
+    escala.set_scale(fator_calib); 
+    escala.tare(); 
+
     client.setServer(mqtt_broker, mqtt_port);
     client.setCallback(callback);
     while (!client.connected()) {
@@ -37,8 +48,7 @@ void setup() {
         }
     }
     StaticJsonDocument<200> jsonDocument;
-    jsonDocument["humidity"] = 25.5;
-    jsonDocument["temperature"] = 60;
+    jsonDocument["connection"] = true;
     String jsonString;
     serializeJson(jsonDocument, jsonString);
     client.publish(topic, jsonString.c_str());
@@ -58,6 +68,7 @@ void callback(char *topic, byte *payload, unsigned int length) {
 
 unsigned long lastPublishTime = 0;
 const unsigned long publishInterval = 1 * 60 * 1000;
+
 void loop() {
     client.loop();
 
@@ -65,8 +76,7 @@ void loop() {
     if (currentMillis - lastPublishTime >= publishInterval) {
         lastPublishTime = currentMillis;
         StaticJsonDocument<200> jsonDocumentTwo;
-        jsonDocumentTwo["More"] = "test1";
-        jsonDocumentTwo["Less"] = "test2";
+        jsonDocumentTwo["leitura"] = escala.get_units(10);
         String jsonStringTwo;
         serializeJson(jsonDocumentTwo, jsonStringTwo);
         client.publish(topic, jsonStringTwo.c_str());

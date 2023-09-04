@@ -1,33 +1,36 @@
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { useParams } from 'react-router';
-import ExploreContainer from '../components/ExploreContainer';
-import './Page.css';
+import React from 'react';
+import {
+  IonContent,
+  IonFooter,
+  IonTabBar,
+  IonTabButton,
+  IonIcon,
+} from '@ionic/react';
+import { home, settings, person } from 'ionicons/icons';
 
-const Page: React.FC = () => {
-
-  const { name } = useParams<{ name: string; }>();
-
+const MyComponent = () => {
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonMenuButton />
-          </IonButtons>
-          <IonTitle>{name}</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+    <IonContent>
+      {/* Your content goes here */}
+      <div>Content goes here</div>
 
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">{name}</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name={name} />
-      </IonContent>
-    </IonPage>
+      <IonFooter>
+        <IonTabBar slot="bottom">
+          <IonTabButton tab="home" href="/home">
+            <IonIcon icon={home} />
+          </IonTabButton>
+
+          <IonTabButton tab="settings" href="/settings">
+            <IonIcon icon={settings} />
+          </IonTabButton>
+
+          <IonTabButton tab="profile" href="/profile">
+            <IonIcon icon={person} />
+          </IonTabButton>
+        </IonTabBar>
+      </IonFooter>
+    </IonContent>
   );
 };
 
-export default Page;
+export default MyComponent;

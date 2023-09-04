@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react';
+import { IonSearchbar } from '@ionic/react';
+import { searchCircle } from 'ionicons/icons';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { Client, Message } from 'paho-mqtt';
+import "./MqttComponent.css"
 
 const MqttComponent: React.FC = () => {
   useEffect(() => {
@@ -17,7 +21,6 @@ const MqttComponent: React.FC = () => {
         messageList.appendChild(listItem);
     };
       
-
     const connectOptions = {
         onSuccess: () => {
             console.log('Connected to MQTT Broker');
@@ -35,9 +38,10 @@ const MqttComponent: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <h1>MQTT Example</h1>
-      <h2>Informações Recebidas</h2>
+    <div className='sm'>
+      <IonSearchbar id="ad" showClearButton="always"></IonSearchbar>
+      <h1 className='something'>MQTT Example</h1>
+      <h2 className='something'>Informações Recebidas</h2>
       <ul id="messageList"></ul>
     </div>
   );
