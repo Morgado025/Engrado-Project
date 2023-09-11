@@ -1,0 +1,26 @@
+.content {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--ion-background);
+    flex-direction: column;
+    z-index: 999;
+    position: absolute;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.content.hidden {
+    opacity: 0;
+}
+
+.logo-title {
+    font-family: Cocogoose, sans-serif;
+    color: var(--brown, #5F493F);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

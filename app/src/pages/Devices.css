@@ -1,6 +1,4 @@
 @import './src/theme/variables.css';
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -44,17 +42,58 @@
 }
 
 .select {
-    --placeholder-color: #1E1E1E;
-    --placeholder-opacity: 1;
+    --background: var(--white);
     font-family: Rubik;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    color: #1E1E1E;
+    --padding-start: 0;
+    --padding-end: 0;
 }
 
-.select::part(text) {
-    color: black;
+.action-sheet {
+    font-family: Rubik;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    width: 100%;
+    line-height: normal;
+    padding: 4px;
+}
+
+.action-sheet-options {
+    margin: auto;
+}
+
+.new-environment {
+    color: white !important;
+    border-radius: var(--Round-4, 12px) !important;
+    background: var(--brown, #5F493F) !important;
+    margin-bottom: 42px;
+}
+
+.action-sheet-button.sc-ion-action-sheet-md {
+    display: block;
+    position: relative;
+    width: 90%;
+    border: 0;
+    outline: none;
+    background: var(--button-background);
+    color: var(--gray, #1E1E1E);
+    text-align: center;
+    font-family: Rubik;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    overflow: hidden;
+}
+
+.action-sheet-button-inner.sc-ion-action-sheet-md {
+    -ms-flex-pack: start;
+    justify-content: center;
 }
 
 .options {
@@ -85,7 +124,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    width: 200px;
+    width: 161px;
     height: 80px;
     padding:12px;
     gap: 8px;
@@ -95,12 +134,16 @@
     border: solid 1px #fff;
     color: var(--ion-text-color);
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x:scroll;
 }
 
 .grid ion-col:active {
     background-color: var(--ion-secondary);
     color: white;
-    fill: white;
+}
+
+.grid ion-col:active .icons{
+    stroke: white;
 }
 
 .grid ion-row {
@@ -118,10 +161,6 @@
     flex-shrink: 0;
     fill: white;
     stroke: var(--ion-primary);
-}
-  
-.icons:active {
-    stroke: white;
 }
 
 #add-button {
@@ -202,4 +241,53 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+}
+
+
+/* Alert Component (input, button, title...) */
+.alert {
+    font-family: Rubik;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.alert-title.sc-ion-alert-md {
+    font-family: Rubik;
+    color: var(--ion-primary);
+    font-size: 20px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: normal;
+    text-align: center;
+}
+
+.alert-button-group.sc-ion-alert-md {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.alert-input.sc-ion-alert-md {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid var(--ion-color-step-150, #d9d9d9);
+    color: var(--ion-text-color, #000);
+    font-size: 18px;
+    text-align: center;
+}
+
+.alert-input.sc-ion-alert-md:focus {
+    margin-bottom: 4px;
+    border-bottom: 2px solid var(--ion-primary);
+}
+
+.alert-button-inner.sc-ion-alert-md {
+    font-size: 20px;
 }
