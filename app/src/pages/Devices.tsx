@@ -137,16 +137,18 @@ const Device: React.FC = () => {
       </IonToolbar>
       <div className='list'>
         <IonButton className='select' fill='clear' onClick={ openActionSheet }>{buttonText} <IonIcon icon={chevron}></IonIcon></IonButton>
-        <IonActionSheet
-          isOpen={showActionSheet}
-          onDidDismiss={closeActionSheet}
-          buttons={options.map((option) => ({
-            text: option.text !== 'Adicionar ambiente' ? option.text : option.text,
-            cssClass: option.css,
-            handler: () => option.text !== 'Adicionar ambiente' ? handleOptionClick(option.value, option.text) : setShowAlert(true)
-          }))}
-          cssClass="action-sheet"
-        />
+        <div className='list-items'>
+          <IonActionSheet
+            isOpen={showActionSheet}
+            onDidDismiss={closeActionSheet}
+            buttons={options.map((option) => ({
+              text: option.text !== 'Adicionar ambiente' ? option.text : option.text,
+              cssClass: option.css,
+              handler: () => option.text !== 'Adicionar ambiente' ? handleOptionClick(option.value, option.text) : setShowAlert(true)
+            }))}
+            cssClass="action-sheet"
+          />
+        </div>
         {alertAddEnvironment()}
       </div>
       <IonGrid className='grid'>
@@ -165,7 +167,6 @@ const Device: React.FC = () => {
           <IonCol><IonIcon icon={favorites} />Favoritos</IonCol>
           <IonCol><IonIcon id='actual' icon={devices} /><span className='actual-page'>Dispositivos</span></IonCol>
           <IonCol><IonIcon icon={automation} />Automação</IonCol>
-          <IonCol><IonIcon icon={setting} />Configuração</IonCol>
         </IonRow>
       </footer>
     </div>

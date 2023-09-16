@@ -2,10 +2,8 @@ import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/r
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 import MqttComponent from './components/MqttComponent';
-import Page from './pages/Page';
 import Devices from './pages/Devices';
 import DeviceOptions from './pages/DeviceOptions'
-import SplashPage from './pages/SplashPage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -31,7 +29,6 @@ setupIonicReact();
 const App: React.FC = () => {
   return (
     <IonApp>
-      <SplashPage />
       <Devices />
       {/* <MqttComponent /> */}
       {/* <DeviceOptions /> */}
