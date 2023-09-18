@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import { useHistory, BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
-import './Devices.css'
+import './Devices.css';
 
-import avatar from '/public/avatar.svg'
-import cube from '/public/cube.svg'
-import wine from '/public/wine.svg'
-import favorites from '/public/favorites.svg'
-import devices from '/public/devices.svg'
-import automation from '/public/automation.svg'
-import setting from '/public/settings.svg'
-import add from '/public/add.svg'
-import chevron from '/public/chevron-down.svg'
+import avatar from '/public/avatar.svg';
+import cube from '/public/cube.svg';
+import wine from '/public/wine.svg';
+import favorites from '/public/favorites.svg';
+import devices from '/public/devices.svg';
+import automation from '/public/automation.svg';
+import setting from '/public/settings.svg';
+import add from '/public/add.svg';
+import chevron from '/public/chevron-down.svg';
 
-import Empty from '../components/Empty'
-import Full from '../components/Full'
+import Empty from '../components/Empty';
+import Full from '../components/Full';
+import TitleComponent from '../components/Title';
+import Footer from '../components/Footer'
 
 import ProfileSettings from '../pages/ProfileSettings';
 
@@ -129,11 +131,7 @@ const Device: React.FC = () => {
 
   return (
     <div className='container'>
-      <IonToolbar className='toolbar'>
-        <IonLabel className='title'>
-          Dispositivos <IonIcon onClick={navigateToDetailsPage} icon={avatar} className='login-icon'></IonIcon>
-        </IonLabel>
-      </IonToolbar>
+      <TitleComponent title="Dispositivos" />
       <div className='list'>
         <IonButton className='select' fill='clear' onClick={ openActionSheet }>{buttonText} <IonIcon icon={chevron}></IonIcon></IonButton>
         <div className='list-items'>
@@ -161,13 +159,7 @@ const Device: React.FC = () => {
         </IonRow>
       </IonGrid>
       <IonButton id='add-button'>Adicionar <IonIcon icon={add} /></IonButton>
-      <footer id='footer'>
-        <IonRow>
-          <IonCol><IonIcon icon={favorites} />Favoritos</IonCol>
-          <IonCol><IonIcon id='actual' icon={devices} /><span className='actual-page'>Dispositivos</span></IonCol>
-          <IonCol><IonIcon icon={automation} />Automação</IonCol>
-        </IonRow>
-      </footer>
+      <Footer />
     </div>
   );
 };

@@ -7,6 +7,7 @@ import Devices from './pages/Devices';
 import DeviceOptions from './pages/DeviceOptions';
 import ProfileSettings from './pages/ProfileSettings';
 import Login from './pages/Login';
+import Automation from './pages/Automation';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -41,6 +42,7 @@ const App: React.FC = () => {
         <IonRouterOutlet>
           <Route exact path="/home" component={Devices} />
           <Route exact path="/details" component={ProfileSettings} />
+          <Route exact path="/automation" component={Automation} />
           <Redirect exact from="/" to="/home" />
         </IonRouterOutlet>
       </IonReactRouter>

@@ -44,7 +44,7 @@ const ProfileSettings: React.FC = () => {
                 <fieldset className='fieldset-profile'>
                     <legend className='legend-input'>E-mail</legend>
                     <input  type="email"
-                            id="text creator"
+                            id="user_email"
                             className="form-control"
                             value='usuario@example.com'
                             readOnly/> 
@@ -52,7 +52,7 @@ const ProfileSettings: React.FC = () => {
                 <fieldset className='fieldset-profile'>
                     <legend className='legend-input'>Senha</legend>
                     <input  type="password"
-                            id="text creator"
+                            id="user_password"
                             className="form-control"
                             value='password123'
                             readOnly/> 
@@ -65,7 +65,7 @@ const ProfileSettings: React.FC = () => {
                     <legend className='legend-input'>Tema</legend>
                     <IonIcon icon={sunny} className='chevron' />
                     <input  type="email"
-                            id="text creator"
+                            id="theme"
                             className="form-control"
                             value="Automatico (Claro)"
                             readOnly/> 
@@ -75,7 +75,7 @@ const ProfileSettings: React.FC = () => {
                     <legend className='legend-input'>Idioma</legend>
                     <IonIcon icon={language} className='chevron' />
                     <input  type="text"
-                            id="text creator"
+                            id="language"
                             className="form-control"
                             value="Português (Brasil)"
                             readOnly/> 
