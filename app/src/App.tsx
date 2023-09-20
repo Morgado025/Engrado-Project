@@ -40,6 +40,7 @@ const App: React.FC = () => {
       {/* <DeviceOptions /> */}
       <IonReactRouter>
         <IonRouterOutlet>
+          <Route exact path="/login" component={Login} />
           <Route exact path="/home" component={Devices} />
           <Route exact path="/details" component={ProfileSettings} />
           <Route exact path="/automation" component={Automation} />

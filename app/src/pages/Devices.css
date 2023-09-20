@@ -192,6 +192,7 @@
     font-weight: 600;
     line-height: normal;
     text-transform: none;   
+    --box-shadow: none;
 }
 
 #add-button ion-icon {

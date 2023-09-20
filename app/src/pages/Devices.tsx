@@ -158,7 +158,7 @@ const Device: React.FC = () => {
           ))}
         </IonRow>
       </IonGrid>
-      <IonButton id='add-button'>Adicionar <IonIcon icon={add} /></IonButton>
+      <IonButton className='ion-no-shadow' id='add-button'>Adicionar <IonIcon icon={add} /></IonButton>
       <Footer />
     </div>
   );
