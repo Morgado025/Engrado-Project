@@ -55,8 +55,8 @@ const Device: React.FC = () => {
 
   const history = useHistory();
 
-  const navigateToDetailsPage = () => {
-    history.push('/details');
+  const navigateToDeviceOptions = () => {
+    history.push('/device-options');
   };
 
   const addComponent = (value: string) => {
@@ -109,7 +109,7 @@ const Device: React.FC = () => {
               text: 'OK',
               cssClass: 'secondary',
               handler: (data) => {
-                const trimmedValue = data.name.substring(0, 25).padEnd(25, ' ');
+                const trimmedValue = data.name.substring(0, 25).padEnd(25, ' '); // 25 characters
                 handleAlertConfirm(trimmedValue);
               }
             }
@@ -154,7 +154,7 @@ const Device: React.FC = () => {
           {/* <IonCol><IonIcon icon={cube} className="icons" />Engrado Classic</IonCol> */}
           {/* <IonCol><IonIcon icon={wine} className="icons" /> Vinhos</IonCol> */}
           {components.map((component, index) => (
-            <div key={index}>{component}</div>
+            <div onClick={navigateToDeviceOptions} key={index}>{component}</div>
           ))}
         </IonRow>
       </IonGrid>

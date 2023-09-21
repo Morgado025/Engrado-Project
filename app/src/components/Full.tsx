@@ -5,7 +5,7 @@ import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle }
 const Empty: React.FC = () => {
   return (
     <IonCardHeader className='full'>
-        Preenchido
+        <span className='som'>Preenchido</span>
     </IonCardHeader>    
   );
 };

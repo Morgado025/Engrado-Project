@@ -46,6 +46,7 @@ const App: React.FC = () => {
           <Route exact path="/favorites" component={Favorites} />
           <Route exact path="/details" component={ProfileSettings} />
           <Route exact path="/automation" component={Automation} />
+          <Route exact path="/device-options" component={DeviceOptions} />
           <Redirect exact from="/" to="/home" />
         </IonRouterOutlet>
       </IonReactRouter>

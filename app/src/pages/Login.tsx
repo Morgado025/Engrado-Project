@@ -10,7 +10,7 @@ const Login: React.FC = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
   
     const handleLogin = () => {
-      // Simulação de uma autenticação bem-sucedida
+      // Simulação
       if (email === 'user@example.com' && password === 'pas123') {
         alert("It's right");
         setIsLoggedIn(true);
