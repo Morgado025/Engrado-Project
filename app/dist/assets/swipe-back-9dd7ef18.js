@@ -1,4 +1,4 @@
-import{c as D,a as M}from"./index-9c3e26d0.js";/*!
+import{c as D,a as M}from"./index-8e61545c.js";/*!
  * (C) Ionic http://ionicframework.com - MIT License
  */const h=e=>e&&e.dir!==""?e.dir.toLowerCase()==="rtl":(document==null?void 0:document.dir.toLowerCase())==="rtl";/*!
  * (C) Ionic http://ionicframework.com - MIT License

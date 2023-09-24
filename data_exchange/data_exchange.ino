@@ -12,14 +12,61 @@ WiFiClient espClient;
 PubSubClient mqttClient(espClient);
 HX711 escala;
 
+
 class MqttWifiConnection {
+private:
+    const char *ssid;
+    const char *password;
+    const char *mqttBroker;
+    const char *topic = "BCIoffdout";
+    const char *mqttUser = "offdout";
+    const char *mqttPassword = "off";
+    const int mqttPort;
+
+
+    void callback(char *topic, byte *payload, unsigned int length) {
+        Serial.print("Message arrived in topic: ");
+        Serial.println(topic);
+        Serial.print("Message:");
+        for (int i = 0; i < length; i++) {
+            Serial.print((char) payload[i]);
+        }
+        Serial.println();
+        Serial.println("-----------------------");
+    }
+
 public:
+    enum class ConnectionStatus {
+        Disconnected,
+        Connecting,
+        Connected,
+    };
+
+    ConnectionStatus connectionStatus = ConnectionStatus::Disconnected;;
+
     MqttWifiConnection(const char* ssid, const char* password, const char* mqttBroker, int mqttPort)
-        : ssid(ssid), password(password), mqttBroker(mqttBroker), mqttPort(mqttPort) {
+        : ssid(ssid), password(password), mqttBroker(mqttBroker), mqttPort(mqttPort), connectionStatus(ConnectionStatus::Disconnected) {
+    }
+
+    const char* getSsid() const {
+        return ssid;
+    }
+
+    void setSsid(const char* newSsid) {
+        ssid = newSsid;
+    }
+
+    const char* getPassword() const {
+        return password;
+    }
+
+    void setPassword(const char* newPassword) {
+        ssid = newPassword;
     }
 
     bool connect() {
         WiFi.begin(ssid, password);
+        connectionStatus = ConnectionStatus::Connecting;
         while (WiFi.status() != WL_CONNECTED) {
             delay(1000);
             Serial.println("Connecting to WiFi...");
@@ -59,11 +106,12 @@ public:
         if (mqttClient.connected()) {
             mqttClient.disconnect();
         }
+        connectionStatus = ConnectionStatus::Disconnected;
         WiFi.disconnect();
     }
 
     bool isConnected() const {
-        return WiFi.status() == WL_CONNECTED && mqttClient.connected();
+        return WiFi.status() == WL_CONNECTED && mqttClient.connected() && connectionStatus == ConnectionStatus::Connected;;
     }
 
     void publish(const char* topic, const char* message) {
@@ -83,30 +131,9 @@ public:
             mqttClient.loop();
         }
     }
-
-private:
-    const char *ssid;
-    const char *password;
-    const char *mqttBroker;
-    const char *topic = "BCIoffdout";
-    const char *mqttUser = "offdout";
-    const char *mqttPassword = "off";
-    const int mqttPort;
-
-
-    void callback(char *topic, byte *payload, unsigned int length) {
-        Serial.print("Message arrived in topic: ");
-        Serial.println(topic);
-        Serial.print("Message:");
-        for (int i = 0; i < length; i++) {
-            Serial.print((char) payload[i]);
-        }
-        Serial.println();
-        Serial.println("-----------------------");
-    }
 };
 
-MqttWifiConnection mqttWifi("*****", "*****", "broker.emqx.io", 1883);
+MqttWifiConnection mqttWifi("ssid", "password", "broker.emqx.io", 1883);
 
 void setup() {
     Serial.begin(115200);
