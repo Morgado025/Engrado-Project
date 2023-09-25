@@ -1,0 +1,18 @@
+.full {
+    display: flex;
+    width: 140px;
+    height: 80px;
+    padding: 12px;
+    margin: 5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: var(--Round-4, 12px);
+    background: var(--green, #68EB9C);
+    color: var(--ion-primary);
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
