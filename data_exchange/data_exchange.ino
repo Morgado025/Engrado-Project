@@ -61,7 +61,7 @@ public:
     }
 
     void setPassword(const char* newPassword) {
-        ssid = newPassword;
+        password = newPassword;
     }
 
     bool connect() {
@@ -82,6 +82,7 @@ public:
         });
 
         while (!mqttClient.connected()) {
+            connectionStatus = ConnectionStatus::Connected;
             String clientId = "esp32-client-";
             clientId += String(WiFi.macAddress());
             Serial.printf("The client %s connects to the public MQTT broker\n", clientId.c_str());
@@ -131,12 +132,29 @@ public:
             mqttClient.loop();
         }
     }
+
+    void printConnectionDetails() {
+      if (connectionStatus == ConnectionStatus::Connected) {
+        Serial.println("Connected");
+        return;
+      } else if (connectionStatus == ConnectionStatus::Connecting) {
+        Serial.println("Connecting");
+        return;
+      } 
+      Serial.println("Disconnected");
+    }
 };
 
 MqttWifiConnection mqttWifi("ssid", "password", "broker.emqx.io", 1883);
 
+const char* newSsid = "Marina_WIFI";
+const char* newPassword = "morita0940";
+
 void setup() {
     Serial.begin(115200);
+    mqttWifi.setSsid(newSsid);
+    mqttWifi.setPassword(newPassword);
+    mqttWifi.printConnectionDetails();
     if (mqttWifi.connect()) {
         mqttWifi.subscribe("BCIoffdout");
         mqttWifi.publish("BCIoffdout", "MQTT Test Message");
@@ -161,6 +179,7 @@ void loop() {
         serializeJson(jsonDocumentTwo, jsonStringTwo);
         mqttWifi.publish("BCIoffdout", jsonStringTwo.c_str());
         Serial.println("Message sent");
+        mqttWifi.printConnectionDetails();
     }
     delay(1000);
 }
