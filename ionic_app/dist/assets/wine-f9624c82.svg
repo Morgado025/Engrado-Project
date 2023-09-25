@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="wine-icon" width="24" height="25" viewBox="0 0 24 25">
+  <path d="M18.683 4.25H5.31702V5C5.31702 5 4.10202 13.25 12 13.25C19.898 13.25 18.683 5 18.683 5V4.25Z"  stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M12 13.25V20.75" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M16.5 20.75H7.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M5.25 8H18.75" stroke="#1E1E1E" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>

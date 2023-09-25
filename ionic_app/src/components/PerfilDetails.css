@@ -1,0 +1,15 @@
+.custom-input-container {
+    position: relative;
+    margin: 10px;
+  }
+  
+.custom-input-container ion-input {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.custom-input-container ion-label {
+    color: black;
+}

@@ -1,0 +1,45 @@
+.empty-full {
+    height: 100%;
+    width: 100%;
+}
+
+.device-option-notification {
+    color: var(--ion-primary);
+    color: var(--gray, #1E1E1E);
+    font-family: Rubik;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 24px;
+}
+
+.device-option-title {
+    color: var(--gray, #1E1E1E);
+    text-align: center;
+    font-family: Rubik;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.counter {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.header-device-options {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    align-self: stretch;
+}
