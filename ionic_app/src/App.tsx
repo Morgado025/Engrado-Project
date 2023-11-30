@@ -1,14 +1,14 @@
-import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
+import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonSplitPane, IonTabBar, IonTabButton, IonTabs, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
-import MqttComponent from './components/MqttComponent';
 
 import Devices from './pages/Devices';
 import DeviceOptions from './pages/DeviceOptions';
 import ProfileSettings from './pages/ProfileSettings';
-import Login from './pages/Login';
 import Automation from './pages/Automation';
 import Favorites from './pages/Favorites';
+import Login from './pages/Login';
+import Register from './pages/Register'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -34,21 +34,31 @@ setupIonicReact();
 const App: React.FC = () => {
   return (
     <IonApp>
-      {/* <Devices /> */}
-      {/* <ProfileSettings /> */}
-      {/* <Login /> */}
-      {/* <MqttComponent /> */}
-      {/* <DeviceOptions /> */}
       <IonReactRouter>
-        <IonRouterOutlet>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/home" component={Devices} />
-          <Route exact path="/favorites" component={Favorites} />
-          <Route exact path="/details" component={ProfileSettings} />
-          <Route exact path="/automation" component={Automation} />
-          <Route exact path="/device-options" component={DeviceOptions} />
-          <Redirect exact from="/" to="/home" />
-        </IonRouterOutlet>
+          <IonRouterOutlet>
+            <Route exact path="/login" >
+              <Login />
+            </Route>
+            <Route exact path="/register" >
+              <Register />
+            </Route>
+            <Route exact path="/devices" >
+              <Devices />
+            </Route>
+            <Route exact path="/favorites" >
+              <Favorites />
+            </Route>
+            <Route exact path="/details" >
+              <ProfileSettings />
+            </Route>
+            <Route exact path="/automation" >
+              <Automation />
+            </Route>
+            <Route exact path="/device-options" >
+              <DeviceOptions />
+            </Route>
+            <Redirect exact from="/" to="/login" />
+          </IonRouterOutlet>
       </IonReactRouter>
     </IonApp>
   );

@@ -4,9 +4,9 @@
 #include "HX711.h"
 
 #define CELULA_DT  21
-#define CELULA_SCK  19
+#define CELULA_SCK  18
 
-float fator_calib = -10000;
+float fator_calib = 12231;
 
 WiFiClient espClient;
 PubSubClient mqttClient(espClient);
@@ -165,7 +165,7 @@ void setup() {
 }
 
 unsigned long lastPublishTime = 0;
-const unsigned long publishInterval = 1 * 60 * 1000;
+const unsigned long publishInterval = 1 * 5 * 1000;
 
 void loop() {
     mqttWifi.loop();

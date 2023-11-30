@@ -1,0 +1,28 @@
+#footer {
+    width: 100%;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer ion-label {
+    color: var(--gray, #1E1E1E);
+    text-align: center;
+    font-family: Rubik;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+#footer ion-tab-button{
+    display: flex;
+    justify-content: flex-end;
+    stroke: black;
+    --color-selected: var(--gray, #1E1E1E);
+    --color: white;
+}

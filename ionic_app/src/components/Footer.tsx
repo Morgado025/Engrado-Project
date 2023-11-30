@@ -1,34 +1,29 @@
-import React, { useState } from 'react';
-import { IonRow, IonCol, IonIcon } from '@ionic/react';
-import { useHistory, BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import React from 'react';
+import { IonIcon, IonTabBar, IonTabButton, IonLabel, IonTabs } from '@ionic/react';
 
 import favorites from '/public/favorites.svg';
-import devices from '/public/devices.svg';
+import cube from '/public/cube.svg';
 import automation from '/public/automation.svg';
 
+import './Footer.css';
+
 const Footer: React.FC = () => {
-  const history = useHistory();
-
-  const devicesPage = () => {
-    history.push('/home');
-  };
-
-  const automationPage = () => {
-    history.push('/automation');
-  };
-
-  const favoritesPage = () => {
-    history.push('/favorites');
-  };
 
   return (
-    <footer id='footer'>
-        <IonRow>
-            <IonCol><IonIcon onClick={favoritesPage} icon={favorites} />Favoritos</IonCol>
-            <IonCol><IonIcon onClick={devicesPage} id='actual' icon={devices} /><span className='actual-page'>Dispositivos</span></IonCol>
-            <IonCol><IonIcon onClick={automationPage} icon={automation} />Automação</IonCol>
-        </IonRow>
-    </footer>
+    <IonTabBar slot='bottom' id='footer'>
+        <IonTabButton tab='favorites' href='/favorites'>
+            <IonIcon aria-hidden="true" icon={favorites} />
+            <IonLabel>Favoritos</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab='home' href='/devices'>
+            <IonIcon aria-hidden="true" icon={cube} />
+            <IonLabel>Dispositivos</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab='automation' href='/automation'>
+            <IonIcon aria-hidden="true" icon={automation} />
+            <IonLabel>Automação</IonLabel>
+        </IonTabButton>
+    </IonTabBar>
   );
 };
 
