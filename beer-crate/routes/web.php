@@ -19,5 +19,3 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/mqtt', [MqttController::class, 'leituraScriptMQTT']);
-
