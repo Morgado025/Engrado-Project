@@ -8,14 +8,14 @@ const LanguageSelector: React.FC = () => {
   const languageOptions = [
     'English',
     'Español',
-    'Portugues (Brasil)',
+    'Português (Brasil)',
     'Français',
     'Deutsch',
   ];
   
   return (
     <div className='language-selector-container'>
-      <IonSelect placeholder='Portugues (Brasil)' toggleIcon={chevron} className="centered">
+      <IonSelect placeholder='Português (Brasil)' toggleIcon={chevron} className="centered">
         {languageOptions.map((language, index) => (
           <IonSelectOption key={index} value={language}>
             {language}

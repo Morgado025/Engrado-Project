@@ -26,7 +26,6 @@
 
 .login-email, .login-password {
     display: flex;
-    width: 336px;
     padding: 18px 12px;
     border-radius: 4px;
     border: 1px solid var(--gray, #1E1E1E);
@@ -41,6 +40,16 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
+    line-height: normal;
+}
+
+.login-sign-in {
+    width: 100%;
+    color: var(--white, #FFF);
+    font-family: Rubik;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
     line-height: normal;
 }
 
@@ -110,3 +119,6 @@
     background: var(--gray, #1E1E1E);
 }
 
+.login-inputs {
+    width: 100%;
+}
